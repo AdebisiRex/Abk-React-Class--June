@@ -1,4 +1,9 @@
 import React, { useState } from 'react'
+// import DiplayTodo from './DiplayTodo'
+import { Route, Routes } from 'react-router-dom'
+import AboutApp from './AboutApp'
+import DiplayTodo from './DiplayTodo'
+import LandingPage from './LandingPage'
 
 const AddTodo = (props) => {
     const [task, settask] = useState("")
@@ -16,7 +21,8 @@ const AddTodo = (props) => {
    }
 
   return (
-    <div className='border my-5 rounded-3 p-4 shadow-sm col-7 mx-auto vh-100'>
+    <>
+    <div className='border my-5 rounded-3 p-4 shadow-sm col-7 mx-auto'>
         <h1 className='text-warning'>Checked</h1>
         <div className='mb-3'>
             <label htmlFor="">Todo Task</label>
@@ -35,7 +41,13 @@ const AddTodo = (props) => {
             <button onClick={addTask} className=' btn btn-warning form-control text-white'> Submit Task</button>
         
     </div>
-  )
-}
 
-export default AddTodo
+    <Routes>
+        <Route path="/" element={<LandingPage/>}/>
+        {/* <Route path="/about" element={<AboutApp/>}/> */}
+        <Route path="/about/" element={<AboutApp/>}/>
+    </Routes>
+    </>
+  )
+};
+export default AddTodo;

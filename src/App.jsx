@@ -5,60 +5,49 @@ import AddTodo from "./component/AddTodo";
 import DiplayTodo from "./component/DiplayTodo";
 import AboutApp from "./component/AboutApp";
 import NotFound from "./component/NotFound";
+import LandingPage from "./component/LandingPage";
+import Welcome from "./component/Welcome";
+import BlogPage from "./component/BlogPage";
 
 const App = () => {
   const [taskArray, settaskArray] = useState([]);
+
+  const[input, setInput]= useState('')
   const navigate = useNavigate();
+
+  const runInput =()=>{
+     navigate('/welcome/'+input)
+  }
+
   return (
-    <>
-      <nav className="nav">
+    <div className="bg-dark text-light min-vh-100">
+      <nav className="nav bg-light mb-4 shadow-sm">
         <ul className="nav">
-          <li className="nav-item"><Link className="nav-link" to="/">Home</Link> </li>
-          <li className="nav-item"><Link className="nav-link" to="/about">About Us </Link> </li>
-          <li className="nav-item"><Link className="nav-link" to="/add-todo">Add Todo</Link> </li>
-          <li className="nav-item"><Link className="nav-link" to="/dadadadada">Logout</Link> </li>
+          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/">Home</Link> </li>
+          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/about">About Us </Link> </li>
+          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/blog">Our Blog </Link> </li>
+          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/welcome/adebisi">Visit Adebisi</Link> </li>
+          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/welcome/ibrahim">Visit Ibrahim</Link> </li>
         </ul>
       </nav>
-    
-      {/* <div>
-        <AddTodo settask={settaskArray} taskArray={taskArray} />
-        <DiplayTodo taskArray={taskArray} />
+
+
+      {/* <div className="container">
+        <input type="text" onChange={(e)=>setInput(e.target.value)} />
+        <button onClick={runInput}>The Button</button>
       </div> */}
-      <h1>Our Todo App</h1>
+    
       <Routes>
-        <Route path="/add-todo" element={<AddTodo />} />
+        <Route path="/" exact element={<LandingPage />} />
         <Route path="/about" element={<AboutApp />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/blog" element={<BlogPage />} />
+
+        <Route path="/welcome/:token" exact element={<Welcome />} />
+        <Route path="/add-todo/*" exact element={<AddTodo />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
 
-      <div
-        className="btn-group"
-        role="group"
-        aria-label="Basic mixed styles example"
-      >
-        <button
-          onClick={() => navigate("/about")}
-          type="button"
-          className="btn btn-danger"
-        >
-          About Us
-        </button>
-        <button
-          onClick={() => navigate("/add-todo")}
-          type="button"
-          className="btn btn-warning"
-        >
-          Add Todo
-        </button>
-        <button
-          onClick={() => navigate("/")}
-          type="button"
-          className="btn btn-success"
-        >
-          Home
-        </button>
-      </div>
-    </>
+    </div>
   );
 };
 
