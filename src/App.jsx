@@ -8,6 +8,7 @@ import NotFound from "./component/NotFound";
 import LandingPage from "./component/LandingPage";
 import Welcome from "./component/Welcome";
 import BlogPage from "./component/BlogPage";
+import Signup from "./component/Signup";
 
 const App = () => {
   const [taskArray, settaskArray] = useState([]);
@@ -27,7 +28,8 @@ const App = () => {
           <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/about">About Us </Link> </li>
           <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/blog">Our Blog </Link> </li>
           <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/welcome/adebisi">Visit Adebisi</Link> </li>
-          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/welcome/ibrahim">Visit Ibrahim</Link> </li>
+          {/* <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/welcome/ibrahim">Visit Ibrahim</Link> </li> */}
+          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/signup">Sign Up</Link> </li>
         </ul>
       </nav>
 
@@ -44,6 +46,7 @@ const App = () => {
 
         <Route path="/welcome/:token" exact element={<Welcome />} />
         <Route path="/add-todo/*" exact element={<AddTodo />} />
+        <Route path="/signup" exact element={<Signup />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
 
