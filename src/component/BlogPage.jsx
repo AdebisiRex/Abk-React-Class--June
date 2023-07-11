@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import ClassBased from "./ClassBased";
 
-const BlogPage = () => {
+const BlogPage = ({taskArray}) => {
   const [posts, setPosts] = useState([]);
 
   const getBlogs = async () => {
@@ -17,7 +18,7 @@ const BlogPage = () => {
   };
   useEffect(() => {
     // console.log("component had been mounted")
-    getBlogs();
+    // getBlogs();
   }, []);
 
   // if(posts.length< 1){
@@ -30,6 +31,8 @@ const BlogPage = () => {
   return (
     <div className="container">
       <h1>This is our blog</h1>
+
+      <ClassBased taskArray={taskArray}/>
 
       <div className="row g-2">
         {posts.length > 0 ? (
