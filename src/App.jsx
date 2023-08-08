@@ -10,6 +10,7 @@ import Welcome from "./component/Welcome";
 import BlogPage from "./component/BlogPage";
 import Signup from "./component/Signup";
 import ClassBased from "./component/ClassBased";
+import ShowUsers from "./component/ShowUsers";
 
 const App = () => {
   const [taskArray, settaskArray] = useState([]);
@@ -41,6 +42,8 @@ const App = () => {
        
           <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/signup">Sign Up</Link> </li>
           <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/add-todo">Add Todo</Link> </li>
+          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/add-todo">Add Todo</Link> </li>
+          <li className="nav-item"><Link className="nav-link text-dark fw-bold" to="/user">User</Link> </li>
         </ul>
       </nav>
 
@@ -52,10 +55,10 @@ const App = () => {
         <button onClick={runInput}>The Button</button>
       </div> */}
 
-      <h1 ref={headerRef}>Using Use Ref</h1>
+      {/* <h1 ref={headerRef}>Using Use Ref</h1>
 
       <input ref={inputRef} type="text" />
-      <button className="btn btn-primary" onClick={handleSubmit}>Sumbit </button>
+      <button className="btn btn-primary" onClick={handleSubmit}>Sumbit </button> */}
 
 
       <Routes>
@@ -66,6 +69,7 @@ const App = () => {
         <Route path="/welcome/:token" exact element={<Welcome />} />
         <Route path="/add-todo/*" exact element={<AddTodo />} />
         <Route path="/signup" exact element={<Signup />} />
+        <Route path="/user" exact element={<ShowUsers />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
